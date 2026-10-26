@@ -27,7 +27,7 @@
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
-  .nav-links{display:flex; gap:24px;}
+  .nav-links{display:flex; gap:24px; flex-wrap:wrap;}
   .nav-links a{
     font-size:.88rem; color:var(--muted); text-decoration:none;
     transition:color .2s;
@@ -76,6 +76,23 @@
     padding:3px 9px; border-radius:999px;
   }
   .card a{font-size:.88rem;}
+
+  .strength-list{display:flex; flex-direction:column; gap:16px;}
+  .strength{
+    background:var(--panel); border:1px solid var(--line);
+    border-radius:12px; padding:22px;
+  }
+  .strength h3{margin:0 0 4px; font-size:1.05rem; font-weight:600; color:#ffffff;}
+  .strength .label{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--accent); margin:14px 0 4px;
+  }
+  .strength p{margin:0; font-size:.92rem; color:var(--muted);}
+  .strength .evidence{
+    margin-top:14px; padding-top:12px; border-top:1px dashed var(--line);
+    font-size:.85rem; color:var(--muted);
+  }
+  .strength .evidence strong{color:var(--fg);}
 
   .skills{display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;}
   @media(max-width:640px){ .skills{grid-template-columns:1fr;} }
@@ -128,6 +145,7 @@
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
+    <a href="#strengths">Strengths</a>
     <a href="#skills">Skills</a>
     <a href="#certs">Certs</a>
     <a href="#contact">Contact</a>
@@ -170,6 +188,46 @@
           <span class="tag">Sensor</span><span class="tag">Embedded</span><span class="tag">Prototype</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="strengths">
+    <h2>Strengths</h2>
+    <div class="strength-list">
+
+      <div class="strength">
+        <h3>같은 주제를 심화시키는 지속성</h3>
+        <p class="label">상황</p>
+        <p>중학교 때 열감지 센서로 신호등 1개짜리 신호체계를 만들었고, 고등학교에서 이를 심화시키기로 했다.</p>
+        <p class="label">행동</p>
+        <p>신호등 1개에서 멈추지 않고 사거리 형태로 확장해 신호등을 여러 개 배치하고, 서로 연동되도록 신호체계를 재구성했다.</p>
+        <p class="label">결과</p>
+        <p>심화 버전으로 대회에서 금상을 받았고, KCC(한국컴퓨터종합학술대회)에 논문이 게재되었다.</p>
+        <p class="evidence"><strong>근거</strong> · KCC 게재 확인 페이지, 금상 상장</p>
+      </div>
+
+      <div class="strength">
+        <h3>좋아하는 것을 체계적으로 관리하는 힘</h3>
+        <p class="label">상황</p>
+        <p>먼작귀 굿즈를 모으기 시작해 개수가 50개 정도로 늘어나면서 정리가 필요해졌다.</p>
+        <p class="label">행동</p>
+        <p>굿즈를 종류별로 나눠 보관하고, 각 굿즈의 라벨을 파일로 따로 모아 관리했다.</p>
+        <p class="label">결과</p>
+        <p>50개 정도의 굿즈가 종류별로 정리되어 원하는 것을 바로 찾을 수 있게 되었고, 라벨 파일로 보유 목록이 기록으로 남았다.</p>
+        <p class="evidence"><strong>근거</strong> · 종류별로 정리된 굿즈 사진</p>
+      </div>
+
+      <div class="strength">
+        <h3>어려움을 안고 끝까지 완성하는 완주력</h3>
+        <p class="label">상황</p>
+        <p>2인 조별과제로 근전도(EMG) 센서를 이용해 로봇팔을 구현했는데, 센서가 정확하지 않아 근전도 신호에 노이즈가 많이 섞였다.</p>
+        <p class="label">행동</p>
+        <p>노이즈 문제로 신호 처리가 어려웠지만 프로젝트를 중단하지 않고, 동작 구현까지 끝까지 진행했다.</p>
+        <p class="label">결과</p>
+        <p>손가락 쥐기·펴기, 팔 움직이기까지 동작을 성공시켰다.</p>
+        <p class="evidence"><strong>근거</strong> · 작동코드</p>
+      </div>
+
     </div>
   </section>
 
@@ -216,7 +274,7 @@
         <h4>공개</h4>
         <ul>
           <li>이름, 한 줄 소개, 배경 요약</li>
-          <li>프로젝트 설명 및 공개 저장소 링크</li>
+          <li>프로젝트·강점 설명 및 공개 근거</li>
           <li>기술 스택, 자격증 취득 예정 항목, 공개 연락 채널</li>
         </ul>
       </div>
