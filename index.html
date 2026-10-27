@@ -62,13 +62,26 @@
     font-size:.75rem; color:var(--muted);}
   .strength .evidence strong{color:var(--fg);}
 
+  /* Projects: details 접이식 */
   .project-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
   @media(max-width:640px){ .project-grid{grid-template-columns:1fr;} }
-  .project{background:var(--panel); border:1px solid var(--line);
-    border-radius:10px; padding:16px; display:flex; flex-direction:column;}
-  .project h3{margin:0 0 8px; font-size:.98rem; font-weight:600; color:#fff;}
-  .project p{margin:0 0 12px; font-size:.8rem; color:var(--muted);}
-  .tags{display:flex; flex-wrap:wrap; gap:4px; margin-top:auto;}
+  details.project{
+    background:var(--panel); border:1px solid var(--line);
+    border-radius:10px; padding:0 16px;
+  }
+  details.project summary{
+    cursor:pointer; padding:16px 0;
+    font-size:.98rem; font-weight:600; color:#fff;
+    list-style:none;
+  }
+  details.project summary::-webkit-details-marker{display:none;}
+  details.project summary::before{content:"▸ "; color:var(--accent);}
+  details.project[open] summary::before{content:"▾ ";}
+  details.project .project-body{padding-bottom:16px;}
+  details.project .project-body p{font-size:.8rem; color:var(--muted); margin:0 0 12px;}
+  details.project:focus-within{border-color:var(--accent-dim);}
+
+  .tags{display:flex; flex-wrap:wrap; gap:4px;}
   .tag{font-family:var(--mono); font-size:.68rem; color:var(--accent);
     background:rgba(45,212,191,.08); border:1px solid rgba(45,212,191,.25);
     padding:2px 8px; border-radius:999px;}
@@ -180,16 +193,23 @@
   <section id="projects">
     <h2>Projects</h2>
     <div class="project-grid">
-      <div class="project">
-        <h3>EMG 기반 로봇팔 제어</h3>
-        <p>근전도 신호를 수집·분석해 실제 팔 동작에 대응하는 로봇팔 제어를 구현.</p>
-        <div class="tags"><span class="tag">EMG</span><span class="tag">신호처리</span><span class="tag">Python</span></div>
-      </div>
-      <div class="project">
-        <h3>열감지 센서 신호체계 모형</h3>
-        <p>열감지 센서로 더 효율적인 신호 전달 체계를 모형으로 제작·검증.</p>
-        <div class="tags"><span class="tag">Sensor</span><span class="tag">Embedded</span><span class="tag">Prototype</span></div>
-      </div>
+
+      <details class="project">
+        <summary>EMG 기반 로봇팔 제어</summary>
+        <div class="project-body">
+          <p>근전도 신호를 수집·분석해 실제 팔 동작에 대응하는 로봇팔 제어를 구현.</p>
+          <div class="tags"><span class="tag">EMG</span><span class="tag">신호처리</span><span class="tag">Python</span></div>
+        </div>
+      </details>
+
+      <details class="project">
+        <summary>열감지 센서 신호체계 모형</summary>
+        <div class="project-body">
+          <p>열감지 센서로 더 효율적인 신호 전달 체계를 모형으로 제작·검증.</p>
+          <div class="tags"><span class="tag">Sensor</span><span class="tag">Embedded</span><span class="tag">Prototype</span></div>
+        </div>
+      </details>
+
     </div>
   </section>
 
