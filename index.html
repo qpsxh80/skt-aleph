@@ -11,11 +11,11 @@
     --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; overflow-x:hidden;}
   body{
     margin:0; background:var(--bg); color:var(--fg); line-height:1.6;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:1240px; margin:0 auto; padding:32px 16px 48px;}
 
@@ -27,11 +27,11 @@
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
-  .nav-links{display:flex; gap:20px; flex-wrap:wrap;}
+  .nav-links{display:flex; gap:18px; flex-wrap:wrap;}
   .nav-links a{font-size:.82rem; color:var(--muted); text-decoration:none;}
   .nav-links a:hover{color:var(--accent);}
-  @media(max-width:640px){ .nav-links{gap:12px;} .nav-links a{font-size:.75rem;} }
-  header, section, footer{scroll-margin-top:56px;}
+  @media(max-width:640px){ .nav-links{gap:10px;} .nav-links a{font-size:.74rem;} }
+  header, section, footer, details{scroll-margin-top:56px;}
 
   header{padding-bottom:20px; border-bottom:1px solid var(--line); margin-bottom:20px;}
   .eyebrow{font-family:var(--mono); font-size:.72rem; letter-spacing:.12em;
@@ -112,11 +112,13 @@
 
 <nav class="nav">
   <div class="nav-links">
+    <a href="#top">Top</a>
     <a href="#about">About</a>
     <a href="#strengths">Strengths</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#certs">Certs</a>
+    <a href="#scope">Scope</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -209,7 +211,7 @@
     </div>
   </section>
 
-  <details class="scope">
+  <details class="scope" id="scope">
     <summary>공개 범위 (Public Scope)</summary>
     <div class="scope-grid">
       <div>
@@ -236,5 +238,21 @@
   </footer>
 
 </div>
+
+<script>
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click', function(e){
+    var id = this.getAttribute('href');
+    if(id && id.charAt(0) === '#'){
+      var el = document.querySelector(id);
+      if(el){
+        e.preventDefault();
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+        history.replaceState(null, '', id);
+      }
+    }
+  });
+});
+</script>
 </body>
 </html>
