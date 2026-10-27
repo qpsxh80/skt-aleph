@@ -238,21 +238,5 @@
   </footer>
 
 </div>
-
-<script>
-document.querySelectorAll('.nav-links a').forEach(function(a){
-  a.addEventListener('click', function(e){
-    var id = this.getAttribute('href');
-    if(id && id.charAt(0) === '#'){
-      var el = document.querySelector(id);
-      if(el){
-        e.preventDefault();
-        el.scrollIntoView({behavior:'smooth', block:'start'});
-        history.replaceState(null, '', id);
-      }
-    }
-  });
-});
-</script>
 </body>
 </html>
